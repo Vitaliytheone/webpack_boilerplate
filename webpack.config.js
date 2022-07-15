@@ -11,6 +11,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
+        assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
     devtool: "source-map",
