@@ -3,8 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let mode = "development";
+let target = "web";
 if (process.env.NODE_ENV === "production") {
     mode = "production";
+    target = "browserslist";
 }
 
 const plugins = [
@@ -18,20 +20,18 @@ const plugins = [
 
 module.exports = {
     mode,
+    target,
     plugins,
     entry: "./src/index.js",
-
     output: {
         path: path.resolve(__dirname, "dist"),
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
     devtool: "source-map",
-
     devServer: {
         hot: true,
     },
-
     module: {
         rules: [
             { test: /\.(html)$/, use: ["html-loader"] },
