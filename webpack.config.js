@@ -39,6 +39,14 @@ module.exports = {
                 test: /\.(s[ac]|c)ss$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+                type: mode === "production" ? "asset" : "asset/resource",
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)$/i,
+                type: "asset/resource",
+            },
         ],
     },
 };
