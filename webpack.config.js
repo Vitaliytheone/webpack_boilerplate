@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 let mode = "development";
 let target = "web";
@@ -19,6 +20,10 @@ const plugins = [
     }),
 ];
 
+if (process.env.SERVE) {
+    plugins.push(new ReactRefreshWebpackPlugin());
+}
+
 module.exports = {
     mode,
     target,
@@ -26,6 +31,7 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
+        filename: "main.js",
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
