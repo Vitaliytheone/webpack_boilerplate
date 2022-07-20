@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let mode = "development";
 let target = "web";
+
 if (process.env.NODE_ENV === "production") {
     mode = "production";
     target = "browserslist";
