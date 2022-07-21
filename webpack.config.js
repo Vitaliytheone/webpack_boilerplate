@@ -31,13 +31,19 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "main.js",
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
     devtool: "source-map",
     devServer: {
+        static: {
+            directory: path.join(__dirname, "public"),
+        },
         hot: true,
+        compress: true,
+        open: true,
+        port: 9000,
+        webSocketServer: false,
     },
     module: {
         rules: [
@@ -56,7 +62,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /(node_modules)/,
                 use: {
                     loader: "babel-loader",
                     options: {
