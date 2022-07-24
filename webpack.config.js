@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
 
 const plugins = [
     new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./public/index.html",
     }),
     new MiniCssExtractPlugin({
         filename: "[name].[contenthash].css",
