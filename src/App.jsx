@@ -1,6 +1,8 @@
-const App = () => {
+import React from "react";
+
+function App() {
   return (
-    <div>React</div>
+    <div>React root component</div>
   )
 }
 
