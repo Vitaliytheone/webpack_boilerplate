@@ -39,6 +39,10 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "public"),
         },
+        client: {
+            progress: true,
+            reconnect: true,
+        },
         hot: true,
         compress: true,
         open: true,
