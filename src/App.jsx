@@ -1,8 +1,9 @@
 import React from "react";
+import "./index.scss";
 
 function App() {
   return (
-    <div>React root component</div>
+    <div className="app">React typescript boilerplate using webpack</div>
   )
 }
 
