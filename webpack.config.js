@@ -20,9 +20,9 @@ const plugins = [
     }),
 ];
 
-if (process.env.SERVE) {
-    plugins.push(new ReactRefreshWebpackPlugin());
-}
+// if (process.env.SERVE) {
+//     plugins.push(new ReactRefreshWebpackPlugin());
+// }
 
 module.exports = {
     mode,
@@ -39,10 +39,10 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "public"),
         },
-        client: {
-            progress: true,
-            reconnect: true,
-        },
+        // client: {
+        //     progress: true,
+        //     reconnect: true,
+        // },
         hot: true,
         compress: true,
         open: true,
