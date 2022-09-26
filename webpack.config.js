@@ -20,14 +20,13 @@ const plugins = [
     }),
 ];
 
-// if (process.env.SERVE) {
-//     plugins.push(new ReactRefreshWebpackPlugin());
-// }
+if (process.env.SERVE) {
+    plugins.push(new ReactRefreshWebpackPlugin());
+}
 
 module.exports = {
     mode,
     target,
-    plugins,
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -39,15 +38,14 @@ module.exports = {
         static: {
             directory: path.join(__dirname, "public"),
         },
-        // client: {
-        //     progress: true,
-        //     reconnect: true,
-        // },
+        client: {
+            progress: true,
+            reconnect: true,
+        },
         hot: true,
         compress: true,
         open: true,
         port: 9000,
-        webSocketServer: false,
     },
     module: {
         rules: [
@@ -65,7 +63,7 @@ module.exports = {
                 type: "asset/resource",
             },
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -76,4 +74,5 @@ module.exports = {
             },
         ],
     },
+    plugins,
 };
