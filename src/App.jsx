@@ -4,7 +4,7 @@ import "./index.scss";
 function App() {
   return (
     <div className="app">
-      React typescript boilerplate using webpack 
+        React typescript boilerplate using webpack 
    </div>
   )
 }
