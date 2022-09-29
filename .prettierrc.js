@@ -8,4 +8,5 @@ module.exports = {
     endOfLine: "auto",
     semi: true,
     endOfLine: "auto",
+    singleQuote: false,
 };
