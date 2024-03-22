@@ -56,11 +56,11 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-                type: mode === "production" ? "asset" : "asset/resource",
+                type: mode === "production" ? "assets" : "assets/resource",
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)$/i,
-                type: "asset/resource",
+                type: "assets/resource",
             },
             {
                 test: /\.(js|jsx|ts|tsx)$/,
