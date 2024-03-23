@@ -29,7 +29,7 @@ module.exports = {
     target,
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "build"),
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
