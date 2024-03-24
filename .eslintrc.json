@@ -25,6 +25,6 @@
     },
     "plugins": ["react", "react-hooks"],
     "rules": {
-        "semi": "warn"
+        "no-console": ["error", { "allow": ["info", "warn", "error"] }]
     }
 }
