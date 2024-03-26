@@ -1,8 +1,9 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
+const DEV = process.env.NODE_ENV !== "production";
 let mode = "development";
 let target = "web";
 
@@ -18,11 +19,8 @@ const plugins = [
     new MiniCssExtractPlugin({
         filename: "[name].[contenthash].css",
     }),
+    new webpack.HotModuleReplacementPlugin(),
 ];
-
-if (process.env.SERVE) {
-    plugins.push(new ReactRefreshWebpackPlugin());
-}
 
 module.exports = {
     mode,
@@ -52,7 +50,12 @@ module.exports = {
             { test: /\.(html)$/, use: ["html-loader"] },
             {
                 test: /\.(s[ac]|c)ss$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: [
+                    DEV ? "style-loader" : MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
             },
             {
                 test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
