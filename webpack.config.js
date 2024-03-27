@@ -25,11 +25,14 @@ const plugins = [
 module.exports = {
     mode,
     target,
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "build"),
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"],
     },
     devtool: "source-map",
     devServer: {
