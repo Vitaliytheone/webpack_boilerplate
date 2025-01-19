@@ -1,4 +1,5 @@
 const plugins = [];
+
 if (process.env.NODE_ENV === "development") {
     plugins.push("react-refresh/babel");
 }
